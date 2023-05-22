@@ -1,4 +1,10 @@
+import { ClassValue, clsx } from 'clsx';
 import { PhoneNumberUtil as PNU } from 'google-libphonenumber';
+import { twMerge } from 'tailwind-merge';
+
+export const cn = (...inputs: ClassValue[]) => {
+	return twMerge(clsx(inputs));
+};
 
 export const formatMoney = (
 	num: number | string,

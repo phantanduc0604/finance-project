@@ -1,5 +1,11 @@
+import Button from 'components/Button';
+
 const Login = () => {
-	return <div>Login Page</div>;
+	return (
+		<div>
+			<Button variant='outline' children='Login' />
+		</div>
+	);
 };
 
 export default Login;

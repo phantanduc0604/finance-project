@@ -1,10 +1,10 @@
+import { ErrorBoundary } from 'common/ErrorBoundary';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './App.css';
 import Routers from 'routers';
-import { BrowserRouter } from 'react-router-dom';
-import { ErrorBoundary } from 'common/ErrorBoundary';
+import './App.css';
 
 function App() {
 	const queryClient = new QueryClient({
