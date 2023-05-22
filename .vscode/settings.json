@@ -1,0 +1,23 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"prettier.trailingComma": "all",
+	"javascript.format.insertSpaceAfterConstructor": true,
+	"javascript.format.semicolons": "insert",
+	"editor.tabSize": 2,
+	"prettier.useTabs": true,
+	"prettier.jsxSingleQuote": true,
+	"prettier.singleQuote": true,
+	"scss.format.spaceAroundSelectorSeparator": true,
+	"css.format.spaceAroundSelectorSeparator": true,
+	"tailwindCSS.experimental.classRegex": [
+		["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
+	],
+	"files.associations": {
+		"*.svg": "html",
+		"*.xml": "html"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+	}
+}
