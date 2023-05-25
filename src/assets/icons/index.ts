@@ -4,6 +4,7 @@ export * from './ChevronUp';
 export * from './Eye';
 export * from './Filter';
 export * from './FlagContent';
+export * from './Loading';
 export * from './Menu';
 export * from './Pencil';
 export * from './PriceKaki';

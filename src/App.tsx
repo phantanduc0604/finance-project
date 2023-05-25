@@ -5,8 +5,14 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Routers from 'routers';
 import './App.css';
+import LoadingFullPage from 'components/LoadingFullPage';
+import { useAtom } from 'jotai';
+import { blurLoading, openLoading } from 'store/global';
 
 function App() {
+	const [loading] = useAtom(openLoading);
+	const [blur] = useAtom(blurLoading);
+
 	const queryClient = new QueryClient({
 		defaultOptions: {
 			queries: {
@@ -21,6 +27,7 @@ function App() {
 		<ErrorBoundary>
 			<BrowserRouter>
 				<QueryClientProvider client={queryClient}>
+					<LoadingFullPage show={loading} blur={blur} />
 					<ToastContainer
 						closeButton={false}
 						position='top-right'

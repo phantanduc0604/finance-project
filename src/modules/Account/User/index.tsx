@@ -1,31 +1,78 @@
-import { Menu } from 'assets/icons';
+import { ColumnDef } from '@tanstack/react-table';
+import { Eye, Pencil, Trash } from 'assets/icons';
 import Button from 'components/Button';
-import { cn } from 'helpers/functions';
-import { useAtom } from 'jotai';
-import { openMenu } from 'store/menu';
+import { DataTable } from 'components/DataTable';
+import Header from 'components/Header';
+import { Input } from 'components/Input';
+import moment from 'moment';
+import { ESticky } from 'types/table';
+import { EUser, IUser, UserList } from 'types/user';
 
 const User = () => {
-	const [open, setOpen] = useAtom(openMenu);
-	const handleOpenMenu = () => {
-		setOpen(!open);
-	};
+	const columns: ColumnDef<IUser>[] = [
+		{
+			accessorKey: EUser.id,
+			header: 'ID',
+		},
+		{
+			accessorKey: EUser.firstName,
+			header: 'First name',
+		},
+		{
+			accessorKey: EUser.displayName,
+			header: 'Display name',
+		},
+		{
+			accessorKey: EUser.email,
+			header: 'Email',
+		},
+		{
+			accessorKey: EUser.phone,
+			header: 'Phone',
+		},
+		{
+			accessorKey: EUser.singPass,
+			header: 'Sing Pass',
+		},
+		{
+			accessorKey: EUser.createdOn,
+			header: 'Created on',
+			cell: ({ row }) =>
+				moment(row.getValue(EUser.createdOn)).format('DD/MM/YYYY HH:mm'),
+		},
+		{
+			id: ESticky.right,
+			accessorKey: 'action',
+			header: 'Action',
+			cell: () => {
+				return (
+					<div className='flex items-center gap-1'>
+						<Button size='icon'>
+							<Eye />
+						</Button>
+						<Button size='icon'>
+							<Pencil />
+						</Button>
+						<Button size='icon'>
+							<Trash />
+						</Button>
+					</div>
+				);
+			},
+		},
+	];
 
 	return (
 		<div>
-			<div
-				className={cn(
-					'w-full h-[56px] px-4',
-					'border-b-neutral-400 border-b',
-					'flex justify-between items-center'
-				)}
-			>
-				<Button onClick={handleOpenMenu} variant='icon' size='icon'>
-					<Menu />
-				</Button>
-				<div>search</div>
+			<Header>
+				<div>
+					<Input placeholder='Search...' />
+				</div>
 				<Button>Create</Button>
+			</Header>
+			<div className='p-2'>
+				<DataTable columns={columns} data={UserList} />
 			</div>
-			<div>body</div>
 		</div>
 	);
 };
