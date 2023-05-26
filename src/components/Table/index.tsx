@@ -3,7 +3,7 @@ import * as React from 'react';
 import { cn } from 'helpers/functions';
 import { VariantProps, cva } from 'class-variance-authority';
 
-// Head
+// Table
 const tableVariants = cva(
 	'w-full caption-bottom border-separate border-spacing-0',
 	{
@@ -71,19 +71,36 @@ const TableFooter = React.forwardRef<
 ));
 TableFooter.displayName = 'TableFooter';
 
-const TableRow = React.forwardRef<
-	HTMLTableRowElement,
-	React.HTMLAttributes<HTMLTableRowElement>
->(({ className, ...props }, ref) => (
-	<tr
-		ref={ref}
-		className={cn(
-			'border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted',
-			className
-		)}
-		{...props}
-	/>
-));
+// Row
+const rowVariants = cva('border-b transition-colors', {
+	variants: {
+		variant: {
+			default:
+				'bg-neutral [&>td]:hover:bg-gray-pale data-[state=selected]:bg-neutral-400',
+		},
+		size: {
+			default: '',
+		},
+	},
+	defaultVariants: {
+		variant: 'default',
+		size: 'default',
+	},
+});
+
+export interface RowProps
+	extends React.HTMLAttributes<HTMLTableRowElement>,
+		VariantProps<typeof rowVariants> {}
+
+const TableRow = React.forwardRef<HTMLTableRowElement, RowProps>(
+	({ className, variant, size, ...props }, ref) => (
+		<tr
+			ref={ref}
+			className={cn(rowVariants({ className, size, variant }))}
+			{...props}
+		/>
+	)
+);
 TableRow.displayName = 'TableRow';
 
 // Head
@@ -92,7 +109,8 @@ const headVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: 'bg-blue-white text-neutral-dark',
+				default:
+					'bg-blue-white text-neutral-dark border-l-[1px] border-b-[1px] border-neutral-300 first:border-l-0 last:border-r-0',
 			},
 			size: {
 				default: 'h-12 px-4 font-medium',
@@ -100,8 +118,8 @@ const headVariants = cva(
 			},
 			type: {
 				default: '',
-				'sticky-right': 'sticky right-0 border-l border-neutral-300',
-				'sticky-left': 'sticky left-0 border-r border-neutral-300',
+				'sticky-right': 'sticky right-0 border-l',
+				'sticky-left': 'sticky left-0 border-r',
 			},
 		},
 		defaultVariants: {
@@ -133,7 +151,8 @@ const cellVariants = cva(
 	{
 		variants: {
 			variant: {
-				default: 'bg-neutral text-neutral-dark',
+				default:
+					'bg-neutral text-neutral-dark border-l-[1px] border-b-[1px] border-neutral-300 first:border-l-0 last:border-r-0',
 			},
 			size: {
 				default: 'p-4',
@@ -141,8 +160,8 @@ const cellVariants = cva(
 			},
 			type: {
 				default: '',
-				'sticky-right': 'sticky right-0 border-l border-neutral-300',
-				'sticky-left': 'sticky left-0 border-r border-neutral-300',
+				'sticky-right': 'sticky right-0 border-l',
+				'sticky-left': 'sticky left-0 border-r',
 			},
 		},
 		defaultVariants: {

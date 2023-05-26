@@ -4,8 +4,10 @@ import {
 	ColumnDef,
 	flexRender,
 	getCoreRowModel,
+	getPaginationRowModel,
 	useReactTable,
 } from '@tanstack/react-table';
+import Pagination, { PaginationProps } from 'components/Pagination';
 
 import {
 	Table,
@@ -17,7 +19,7 @@ import {
 } from 'components/Table';
 import { ISticky } from 'types/table';
 
-interface DataTableProps<TData, TValue> {
+interface DataTableProps<TData, TValue> extends PaginationProps {
 	columns: ColumnDef<TData, TValue>[];
 	data: TData[];
 }
@@ -25,11 +27,13 @@ interface DataTableProps<TData, TValue> {
 export function DataTable<TData, TValue>({
 	columns,
 	data,
+	...pageProps
 }: DataTableProps<TData, TValue>) {
 	const table = useReactTable({
 		data,
 		columns,
 		getCoreRowModel: getCoreRowModel(),
+		getPaginationRowModel: getPaginationRowModel(),
 	});
 
 	return (
@@ -82,6 +86,9 @@ export function DataTable<TData, TValue>({
 					)}
 				</TableBody>
 			</Table>
+			<div className='flex items-center justify-end space-x-2 py-4'>
+				<Pagination {...pageProps} />
+			</div>
 		</div>
 	);
 }

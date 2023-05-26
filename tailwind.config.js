@@ -31,6 +31,7 @@ export default {
 				},
 				green: {
 					DEFAULT: '#6EE47A',
+					dark: '#025B6F',
 					500: '#6EE47A',
 				},
 				blue: {

@@ -37,7 +37,7 @@ const MenuLeft = () => {
 		<div className='w-full'>
 			<div
 				className={cn(
-					'w-full h-[56px] bg-primary p-4 gap-4',
+					'w-full h-[57px] bg-primary p-4 gap-4',
 					'border-b-neutral-400 border-b',
 					'flex items-center',
 					'text-neutral font-bold',
@@ -67,7 +67,7 @@ const MenuLeft = () => {
 									parentLink={pri.sub?.length ? undefined : pri.link}
 									onClick={handleChange(pri.link)}
 								>
-									<div className='flex gap-4'>
+									<div className='flex gap-4 items-center'>
 										{pri.icon}
 										{pri.title}
 									</div>

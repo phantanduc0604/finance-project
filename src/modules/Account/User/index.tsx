@@ -71,7 +71,13 @@ const User = () => {
 				<Button>Create</Button>
 			</Header>
 			<div className='p-2'>
-				<DataTable columns={columns} data={UserList} />
+				<DataTable
+					columns={columns}
+					data={UserList}
+					count={61}
+					page={4}
+					rowsPerPage={10}
+				/>
 			</div>
 		</div>
 	);

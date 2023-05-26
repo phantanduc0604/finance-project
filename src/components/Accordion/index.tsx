@@ -53,9 +53,13 @@ const triggerVariants = cva(
 				default: 'bg-neutral text-neutral-dark hover:bg-neutral-100',
 				active: 'bg-primary text-neutral hover:bg-primary-dark',
 			},
+			size: {
+				default: 'text-[14px]',
+			},
 		},
 		defaultVariants: {
 			variant: 'default',
+			size: 'default',
 		},
 	}
 );
@@ -69,11 +73,11 @@ interface TriggerProps
 const AccordionTrigger = React.forwardRef<
 	React.ElementRef<typeof AccordionPrimitive.Trigger>,
 	TriggerProps
->(({ className, variant, children, parentLink, ...props }, ref) => (
+>(({ className, variant, size, children, parentLink, ...props }, ref) => (
 	<AccordionPrimitive.Header className='flex'>
 		<AccordionPrimitive.Trigger
 			ref={ref}
-			className={cn(triggerVariants({ variant, className }))}
+			className={cn(triggerVariants({ variant, className, size }))}
 			{...props}
 		>
 			{parentLink ? (
@@ -104,9 +108,13 @@ const contentVariants = cva(
 				default: 'bg-neutral text-neutral-dark hover:bg-neutral-100',
 				active: 'bg-neutral-200 text-neutral-dark hover:bg-neutral-300',
 			},
+			size: {
+				default: 'text-[14px]',
+			},
 		},
 		defaultVariants: {
 			variant: 'default',
+			size: 'default',
 		},
 	}
 );
@@ -120,10 +128,10 @@ interface ContentProps
 const AccordionContent = React.forwardRef<
 	React.ElementRef<typeof AccordionPrimitive.Content>,
 	ContentProps
->(({ className, variant, children, link, ...props }, ref) => (
+>(({ className, variant, size, children, link, ...props }, ref) => (
 	<AccordionPrimitive.Content
 		ref={ref}
-		className={cn(contentVariants({ variant, className }))}
+		className={cn(contentVariants({ variant, className, size }))}
 		{...props}
 	>
 		{link ? (

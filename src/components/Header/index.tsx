@@ -20,7 +20,7 @@ const Header = (props: HeaderProps) => {
 	return (
 		<div
 			className={cn(
-				'w-full h-[56px] px-4 bg-neutral',
+				'w-full h-[57px] px-4 bg-neutral',
 				'border-b-neutral-400 border-b',
 				'flex justify-between items-center'
 			)}

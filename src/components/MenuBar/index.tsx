@@ -142,7 +142,7 @@ const contentVariants = cva(
 				default: 'bg-neutral text-neutral-dark',
 			},
 			size: {
-				default: 'p-1',
+				default: 'p-1 text-[14px]',
 			},
 		},
 		defaultVariants: {

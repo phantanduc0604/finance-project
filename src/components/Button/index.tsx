@@ -9,10 +9,15 @@ const buttonVariants = cva(
 		variants: {
 			variant: {
 				default: 'bg-primary text-white hover:bg-primary/90',
+				active: 'bg-primary text-white hover:bg-primary/90',
+				'no-border': 'bg-transparent text-neutral-dark',
+				outline:
+					'bg-neutral text-neutral-dark hover:bg-neutral-300 border border-neutral-400',
 				icon: 'rounded-full bg-neutral text-neutral-dark-300 hover:bg-neutral-300',
 			},
 			size: {
 				default: 'h-10 py-2 px-4',
+				pagin: 'h-8 w-8',
 				icon: 'p-2',
 				sm: 'h-9 px-3 rounded-md',
 				lg: 'h-11 px-8 rounded-md',
