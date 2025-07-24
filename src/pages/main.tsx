@@ -18,7 +18,6 @@ const configRoutes: RouteObject[] = [
         element: <Navigate to={APP_ROUTES.DASHBOARD.path} replace />
       },
       {
-        index: true, 
         path: APP_ROUTES.DASHBOARD.path,
         element: <DashBoard />,
       },

@@ -23,10 +23,10 @@ export const menuRouteParent: MenuItem[] = [
     icon: <ShowChartRounded sx={{ height: '100%', width: '100%' }} />,
   },
   {
-    label: 'Bank',
-    path: APP_ROUTES.BANK.to,
-    name: 'bank',
-    icon: <AccountBalanceRounded sx={{ height: '100%', width: '100%' }} />,
+    label: 'Fund',
+    path: APP_ROUTES.FUND.to,
+    name: 'fund',
+    icon: <BusinessRounded sx={{ height: '100%', width: '100%' }} />,
   },
   {
     label: 'Dashboard',
@@ -35,10 +35,10 @@ export const menuRouteParent: MenuItem[] = [
     icon: <GridViewRounded sx={{ height: '100%', width: '100%' }} />,
   },
   {
-    label: 'Fund',
-    path: APP_ROUTES.FUND.to,
-    name: 'fund',
-    icon: <BusinessRounded sx={{ height: '100%', width: '100%' }} />,
+    label: 'Bank',
+    path: APP_ROUTES.BANK.to,
+    name: 'bank',
+    icon: <AccountBalanceRounded sx={{ height: '100%', width: '100%' }} />,
   },
   {
     label: 'Debt',

@@ -2,7 +2,7 @@ export const converNumberToCurrent: (amount: number, suffix?: string) => string 
   amount: number,
   suffix = '₫',
 ) => {
-  if (isNaN(amount)) return `0 ${suffix}`;
+  if (isNaN(amount)) return `0${suffix}`;
 
   const parts = Math.floor(amount).toString().split('');
   let result = '';
@@ -16,7 +16,7 @@ export const converNumberToCurrent: (amount: number, suffix?: string) => string 
     }
   }
 
-  return `${result} ${suffix}`;
+  return `${result}${suffix}`;
 };
 
 export const isUndefined = (value?: string) => {
